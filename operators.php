@@ -1,39 +1,39 @@
 <?php
 // // Arithmetic Operators
 $a = 10;
-$b = 5;
+// $b = 5;
 
-// // 1. Addition
+// // // 1. Addition
 // $sum = $a + $b;
 // echo "1. Addition: $sum <br>";
 
-// // 2. Subtraction
+// // // 2. Subtraction
 // $difference = $a - $b;
 // echo "2. Subtraction: $difference <br>";
 
-// // 3. Multiplication
+// // // 3. Multiplication
 // $product = $a * $b;
 // echo "3. Multiplication: $product <br>";
 
-// // 4. Division
+// // // 4. Division
 // $quotient = $a / $b;
 // echo "4. Division: $quotient <br>";
 
-// // 5. Modulus (Remainder)
+// // // 5. Modulus (Remainder)
 // $remainder = $a % $b;
 // echo "5. Modulus (Remainder): $remainder <br>";
 
-// // 6. Exponentiation (PHP 5.6 and later)
+// // // 6. Exponentiation (PHP 5.6 and later)
 // $exponential = $a ** $b;
 // echo "6. Exponentiation: $exponential <br><br>";
 
-// // Assignment Operators
+// // // Assignment Operators
 // // 7. Assignment
 // $Assignment = $a;
-// echo "7. Assignment: $assignment <br>"; -->
+// echo "7. Assignment: $assignment <br>"; 
 
-$num=8;
-// 8. Addition Assignment
+// $num=8;
+// // 8. Addition Assignment
 // $num += $b;//$num=13
 // echo "8. Addition Assignment: $num <br>";
 
@@ -117,7 +117,8 @@ $num=8;
 // $decrement = $a--; // or $a--(post decrement)//$decrement=11 $a=10
 // echo "25.2 Decrement: $decrement a: $a <br><br>";
 
-// String Operators
+
+// ***************String Operators********************************
 // 26. Concatenation
 // $stringConcatenation = "Hello" . "World";
 // echo "26. Concatenation: $stringConcatenation <br>";
@@ -130,59 +131,76 @@ $num=8;
 // Assuming $arr1, $arr2, and $arr3 are previously defined arrays.
 
 // For example:
-$arr1 = [1, 2, 3];
-$arr2 = [3, 4, 5];
+$arr1 = [1, 2, 6];//index same chhe
+$arr2 = [3, 4, 5,9];
+$array1=array(1,2);
+$array2=array(1,2);
 $arr3 = ["apple", "orange", "banana"];
 
 // Array Operators
-// 28. Union
-$union = $arr1 + $arr2;
+// 28. Union--different from the array merge function (array_merge()), which would include all occurrences of duplicate values from both arrays. 
+//The union operator is a quick way to create a new array with unique values by preserving the order of the elements from the first array.
+$union = $arr1 + $arr2; //+++++++++++doubt+++++++++++++++++++++++++++
 echo "28. Union: ";
-print_r($union);
+print_r($union);//28. Union: Array ( [0] => 1 [1] => 2 [2] => 6 )
+echo "<br>";
+
+$union = "2" + "3"; //+++++++++++doubt+++++++++++++++++
+// echo "28. Union: ";//28. Union: 5
+// print_r($union);
 echo "<br>";
 
 // 29. Equality
-$arrayEquality = ($arr1 == $arr2);
-echo "29. Equality: ";
-var_dump($arrayEquality);
-echo "<br>";
+// $arrayEquality = ($arr1 == $arr2);
+// echo "29. Equality: ";
+// var_dump($arrayEquality);//29. Equality: bool(false)
+// $arrayEquality = ($array1 == $array2);
+// echo "29. Equality: ";
+// var_dump($arrayEquality);//29. Equality: bool(true)
+// echo "<br>";
 
-// 30. Identity
-$arrayIdentity = ($arr1 === $arr2);
-echo "30. Identity: ";
-var_dump($arrayIdentity);
-echo "<br>";
+// // // 30. Identity
+// $arrayIdentity = ($arr1 === $arr2);
+// echo "30. Identity: ";
+// var_dump($arrayIdentity);//30. Identity: bool(false)
+// echo "<br>";
 
-// 31. Inequality
-$arrayInequality = ($arr1 != $arr2) or ($arr1 <> $arr2);
-echo "31. Inequality: ";
-var_dump($arrayInequality);
-echo "<br>";
+// $arrayIdentity = ($array1 === $array2);
+// echo "30. Identity: ";
+// var_dump($arrayIdentity);//30. Identity: bool(true)
+// echo "<br>";
 
-// 32. Non-identity
-$arrayNonIdentity = $arr1 !== $arr2;
-echo "32. Non-identity: ";
-var_dump($arrayNonIdentity);
-echo "<br><br>";
+// // 31. Inequality
+// $arrayInequality = ($arr1 != $arr2) or ($arr1 <> $arr2);
+// echo "31. Inequality: ";
+// var_dump($arrayInequality);//31. Inequality: bool(true) they are not same 
+// echo "<br>";
+
+// // 32. Non-identity
+// $arrayNonIdentity = $arr1 !== $arr2;
+// echo "32. Non-identity: ";
+// var_dump($arrayNonIdentity);
+// echo "<br><br>";
 
 // Conditional (Ternary) Operator
-// 33. Ternary
-$ternaryResult = ($arr1 ? $arr2 : $arr3);
-echo "33. Ternary: ";
-print_r($ternaryResult);
-echo "<br><br>";
+// // 33. Ternary
+// // $arr1=[];//if this then 3rd arr3 will execute & o/p=33. Ternary: Array ( [0] => apple [1] => orange [2] => banana )else
+// $ternaryResult = ($arr1 ? $arr2 : $arr3);
+// echo "33. Ternary: ";
+// print_r($ternaryResult);//33. Ternary: Array ( [0] => 3 [1] => 4 [2] => 5 )
+// echo "<br><br>";
 
-// Null Coalescing Operator
+// // Null Coalescing Operator
 // 34. Null Coalescing
-$nullCoalescing = null ?? $arr2;
-echo "34. Null Coalescing: ";
-print_r($nullCoalescing);
-echo "<br><br>";
+// $nullCoalescing = null ?? $arr2;
+// echo "34. Null Coalescing: ";
+// print_r($nullCoalescing);//Null Coalescing: Array ( [0] => 3 [1] => 4 [2] => 5 )
+// echo "<br><br>";
 
-// Type Operators
-// 35. Type Of
-$typeOfArr1 = gettype($arr1);
-echo "35. Type Of: $typeOfArr1 <br>";
+// // Type Operators
+// // 35. Type Of
+// $typeOfArr1 = gettype($arr1);
+// echo "35. Type Of: $typeOfArr1 <br>";//35. Type Of: array
 
 
 
@@ -193,7 +211,7 @@ $num1 = 42;
 $num2=0;
 $bool = true;
 
-// Logical AND with strings
+// // Logical AND with strings
 // $logicalAndStr = ($str1 && $str2);
 // echo "Logical AND with strings: $logicalAndStr <br>";
 

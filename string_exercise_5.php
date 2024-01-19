@@ -13,7 +13,7 @@ echo "2. Quote in lowercase: $lowercaseQuote\n";
 echo "<br>";
 
 // 3. Capitalize the first letter of each word in the quote.
-$capitalizedQuote = ucwords($quote);
+$capitalizedQuote = ucwords($quote);//ucfirst(1st character)
 echo "3. Quote with first letter of each word capitalized: $capitalizedQuote\n";
 echo "<br>";
 

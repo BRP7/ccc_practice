@@ -72,11 +72,16 @@ echo "String to Array:";
 var_dump($stringToArray);//String to Array:array(1) { [0]=> string(11) "Hello, PHP!" }
 echo "<br>";
 
-// // Convert to NULL
+// $arrayToString = (string) $arrayVar;
+// echo "String to Array:";
+// var_dump($stringToArray);//Array To String --Warning: Array to string conversion in C
+// echo "<br>";
+
+// Convert to NULL
 // $boolToNull = (unset) $boolVar;
 // echo "Boolean to NULL:";
 // var_dump($boolToNull);
-// echo "<br>";
+// echo "<br>";//Fatal error: The (unset) cast is no longer supported in**
 
 //OUTPUT
 
