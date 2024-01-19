@@ -20,8 +20,5 @@ for($i=1;$i<=5;$i++){
   }
   echo "<br>";
 }
-//if a is 10% greater then b is how % lower
-110
-100
-10/110*100
+
 ?>
