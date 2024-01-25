@@ -1,48 +1,58 @@
 <?php
 include 'sql/connection.php';
-include 'sql/functions.php'; // Make sure to include this file
+include 'sql/functions.php'; 
 
-// Fetch the last 20 records from the database
-$query = selectQuery('ccc_product', 'product_id,product_name, sku, category', '', 'ORDER BY created_at DESC LIMIT 20');
-$result = $conn->query($query);
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
-</head>
-<body>
+// view_entries.php
 
-<h2>Product List</h2>
+// Connect to the database
+// $servername = "localhost";
+// $username = "root";
+// $password = "";
+// $dbname = "ccc_practice";
 
-<table border="1">
-    <tr>
+// $conn = new mysqli($servername, $username, $password, $dbname);
 
-    <th>Product ID</th>
-        <th>Product Name</th>
-        <th>SKU</th>
-        <th>Category</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }
 
-    <?php
+// Fetch the last 10 product records from the database
+// $sql = "SELECT * FROM ccc_product ORDER BY created_at DESC LIMIT 10";
+$sql=selectQuery("ccc_product");
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "<h2>Last 20 Product Entries</h2>";
+    echo "<table border='1'>";
+    echo "<tr><th>Product Name</th><th>SKU</th><th>Category</th><th>Actions</th></tr>";
+    //<th>Price</th><th>Status</th>
+
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>{$row['product_id']}</td>";
         echo "<td>{$row['product_name']}</td>";
         echo "<td>{$row['sku']}</td>";
         echo "<td>{$row['category']}</td>";
-        echo "<td><a href='catalog/product.php?action=edit&id={$row['product_id']}'>Edit</a></td>";
-        echo "<td><a href='catalog/product.php?action=delete&id={$row['product_id']}'>Delete</a></td>";
+        // echo "<td>{$row['price']}</td>";
+        // echo "<td>{$row['status']}</td>";
+        
+        // Edit and Delete options
+        echo "<td>";
+        echo "<a href='edit_entry2.php?id={$row['product_id']}'>Edit</a> | ";
+        echo "<a href='product.php?id={$row['product_id']}'>Delete</a>";
+        echo "</td>";
+
         echo "</tr>";
     }
-    ?>
+    echo "</table>";
+} else {
+    echo "No product entries found";
+}
 
-</table>
+// Close the database connection
+$conn->close();
 
-</body>
-</html>
+
+
+?>

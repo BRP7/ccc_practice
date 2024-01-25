@@ -1,6 +1,5 @@
 <?php
-
-include 'sql/functions.php';
+include 'sql/functions.php'; 
 // function fetchProductData($product_id, $conn) {
 //     // Fetch the record based on the Product ID
 //     $sql = "SELECT * FROM ccc_product WHERE product_id = $product_id";
@@ -55,7 +54,17 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
             <input type="text" name="sku" value="<?php echo $row['sku']; ?>" required><br>
             <!-- Update this line to match your actual column name -->
             <label for="category">Product Category:</label>
-            <input type="text" name="category" value="<?php echo $row['category']; ?>" required><br>
+            <select name="category" required>
+                <option value="Bar & Game Room">Bar & Game Room</option>
+                <option value="Bedroom">Bedroom</option>
+                <option value="Decor">Decor</option>
+                <option value="Dining & Kitchen">Dining & Kitchen</option>
+                <option value="Lighting">Lighting</option>
+                <option value="Living Room">Living Room</option>
+                <option value="Mattresses">Mattresses</option>
+                <option value="Office">Office</option>
+                <option value="Outdoor">Outdoor</option>
+            </select><br>
 
             <!-- Add other form fields here with their values -->
 

@@ -13,8 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif ($_POST['action'] == 'update') {
         // Update existing record
         $productId = $_POST['product_id'];
-        $condition = "product_id = '$productId'";
-        $query = updateQuery('products', $productData, $condition);
+        // $condition = "product_id = '$productId'";
+        $query = updateQuery('products', $productData, $productId);
+
     }
 
     if ($conn->query($query) === TRUE) {
