@@ -1,9 +1,9 @@
 <?php
 include 'mysql_fun.php'; // Include the file containing your insert, update, delete functions
 
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $action = $_POST['action'];

@@ -86,7 +86,7 @@ function delete($table_name, $where = []){
 
     echo "<h3> DELETE FROM {$table_name} WHERE {$whereCond} </h3>";
 }
-delete("ccc_product", ['proctuctname' => '55', 'productType' => 'Simple']);
+delete("ccc_product", ['product_name' => '55', 'product_type' => 'Simple']);
 // die();
 
 

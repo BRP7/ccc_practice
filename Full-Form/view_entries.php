@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
         
         // Edit and Delete options
         echo "<td>";
-        echo "<a href='edit_entry.php?id={$row['product_id']}'>Edit</a> | ";
+        echo "<a href='edit_entry2.php?id={$row['product_id']}'>Edit</a> | ";
         echo "<a href='delete_entry.php?id={$row['product_id']}'>Delete</a>";
         echo "</td>";
 

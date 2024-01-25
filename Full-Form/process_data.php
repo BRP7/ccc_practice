@@ -1,8 +1,8 @@
 <?php
-// process_data.php
-
+// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Connect to the database
+    
+    // Connect to your MySQL database
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -15,32 +15,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Retrieve form data
-    $product_name = $_POST['product_name'];
+    // Get data from the form
+    $productName = $_POST['pdata']['product_name'];
     $sku = $_POST['sku'];
-    $product_type = $_POST['product_type'];
-    $category = $_POST['category'];
-    $manufacturer_cost = $_POST['manufacturer_cost'];
-    $shipping_cost = $_POST['shipping_cost'];
-    $total_cost = $_POST['total_cost'];
-    $price = $_POST['price'];
-    $status = $_POST['status'];
-    $created_at = $_POST['created_at'];
-    $updated_at = $_POST['updated_at'];
+    $productType = $_POST['pdata']['product_type'];
+    $category = $_POST['pdata']['category'];
+    $manufacturerCost = $_POST['pdata']['manufacturer_cost'];
+    $shippingCost = $_POST['pdata']['shipping_cost'];
+    $totalCost = $_POST['pdata']['total_cost'];
+    $price = $_POST['pdata']['price'];
+    $status = $_POST['pdata']['status'];
+    $createdAt = $_POST['pdata']['created_at'];
+    $updatedAt = $_POST['pdata']['updated_at'];
 
-    // Insert data into the database
-    $sql = "INSERT INTO ccc_product (product_name, sku, product_type, category, manufacturer_cost, shipping_cost, total_cost, price, status, created_at, updated_at)
-            VALUES ('$product_name', '$sku', '$product_type', '$category', '$manufacturer_cost', '$shipping_cost', '$total_cost', '$price', '$status', '$created_at', '$updated_at')";
+    // SQL query to insert data into the database
+    $sql = "INSERT INTO ccc_product (product_name, sku, product_type, category, manufacturer_cost, shipping_cost, total_cost, price, status, created_at, updated_at) VALUES ('$productName', '$sku', '$productType', '$category', '$manufacturerCost', '$shippingCost', '$totalCost', '$price', '$status', '$createdAt', '$updatedAt')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Product added successfully";
+        echo "Product added successfully!";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     // Close the database connection
     $conn->close();
-} else {
-    echo "Invalid request";
 }
 ?>
