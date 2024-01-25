@@ -2,6 +2,7 @@
 include 'sql/functions.php'; 
 // update_entry.php
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Connect to the database
     $servername = "localhost";

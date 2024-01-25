@@ -21,7 +21,51 @@
     <input type="radio" name="pdata[product_type]" value="Bundle"> Bundle<br>
 
     <label for="category">Category:</label>
-    <select name="pdata[category]" required>
+
+   
+
+
+
+ <?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ccc_practice";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+
+
+// Fetch categories from the database
+$sql = "SELECT * FROM ccc_category";
+$result = $conn->query($sql);
+
+// Check if there are categories
+if ($result->num_rows > 0) {
+    // Output the HTML select element
+    echo '<select name="category">';
+    
+    // Output each category as an option
+    while ($row = $result->fetch_assoc()) {
+        echo '<option value="' . $row['name'] . '">' . $row['name'] . '</option>';
+    }
+    
+    echo '</select>';
+} else {
+    echo 'No categories found.';
+}
+
+// Close the database connection
+$conn->close();
+?>
+    <!-- <select name="pdata[category]" required>
         <option value="Bar & Game Room">Bar & Game Room</option>
         <option value="Bedroom">Bedroom</option>
         <option value="Decor">Decor</option>
@@ -31,7 +75,7 @@
         <option value="Mattresses">Mattresses</option>
         <option value="Office">Office</option>
         <option value="Outdoor">Outdoor</option>
-    </select><br>
+    </select><br> -->
 
     <label for="manufacturer_cost">Manufacturer Cost:</label>
     <input type="text" name="pdata[manufacturer_cost]" required><br>
