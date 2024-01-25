@@ -1,4 +1,12 @@
 <?php
+echo "<pre>"
+print($_POST[group1]);
+print($_POST[group2]);
+die;
+
+//include 'filename.php';
+//require 'filename.php';
+
     $server_name = "localhost";
     $username = "root";
     $password = "";
