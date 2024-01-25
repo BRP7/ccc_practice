@@ -58,7 +58,31 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     <option value="Office" <?php echo ($row['category'] == 'Office') ? 'selected' : ''; ?>>Office</option>
     <option value="Outdoor" <?php echo ($row['category'] == 'Outdoor') ? 'selected' : ''; ?>>Outdoor</option>
 </select><br>
+<label for="manufacturer_cost">Manufacturer Cost:</label>
+            <input type="text" name="manufacturer_cost" value="<?php echo $row['manufacturer_cost']; ?>" required><br>
 
+            <label for="shipping_cost">Shipping Cost:</label>
+            <input type="text" name="shipping_cost" value="<?php echo $row['shipping_cost']; ?>" required><br>
+
+            <label for="total_cost">Total Cost:</label>
+            <input type="text" name="total_cost" value="<?php echo $row['total_cost']; ?>" required><br>
+
+            <label for="price">Price:</label>
+            <input type="text" name="price" value="<?php echo $row['price']; ?>" required><br>
+
+            <label for="status">Status:</label>
+            <select name="status" required>
+                <option value="Enabled" <?php echo ($row['status'] == 'Enabled') ? 'selected' : ''; ?>>Enabled</option>
+                <option value="Disabled" <?php echo ($row['status'] == 'Disabled') ? 'selected' : ''; ?>>Disabled</option>
+            </select><br>
+
+            <label for="created_at">Created At:</label>
+            <input type="date" name="created_at" value="<?php echo $row['created_at']; ?>" required><br>
+
+            <label for="updated_at">Updated At:</label>
+            <input type="date" name="updated_at" value="<?php echo $row['updated_at']; ?>" required><br>
+
+            
 
             <!-- Add other form fields here with their values -->
 

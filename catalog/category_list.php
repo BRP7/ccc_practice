@@ -1,8 +1,9 @@
 <?php
 include 'sql/connection.php';
+include  'sql/function.php'
 
 // Fetch all categories from the database
-$query = selectQuery('categories');
+$query = selectQuery('ccc_category');
 $result = $conn->query($query);
 ?>
 

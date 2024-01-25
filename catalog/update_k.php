@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 //   echo "<pre>";
   $data=$_POST;
+  print_r($data);
   $product_id = $_POST['product_id'];
     // Check connection
     if ($conn->connect_error) {
