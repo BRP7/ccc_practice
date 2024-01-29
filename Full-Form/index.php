@@ -21,13 +21,7 @@
     <input type="radio" name="pdata[product_type]" value="Bundle"> Bundle<br>
 
     <label for="category">Category:</label>
-
-   
-
-
-
  <?php
-
 $servername = "localhost";
 $username = "root";
 $password = "";

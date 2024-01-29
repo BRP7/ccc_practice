@@ -1,5 +1,5 @@
 <?php
-include 'sql/connection.php';
+require 'sql/connection.php';
 include 'sql/functions.php'; 
 
 
@@ -22,6 +22,7 @@ include 'sql/functions.php';
 // $sql = "SELECT * FROM ccc_product ORDER BY created_at DESC LIMIT 10";
 $sql=selectQuery("ccc_product");
 $result = $conn->query($sql);
+// print_r($result);
 
 if ($result->num_rows > 0) {
     echo "<h2>Last 20 Product Entries</h2>";
@@ -39,8 +40,8 @@ if ($result->num_rows > 0) {
         
         // Edit and Delete options
         echo "<td>";
-        echo "<a href='edit_entry2.php?id={$row['product_id']}'>Edit</a> | ";
-        echo "<a href='product.php?id={$row['product_id']}'>Delete</a>";
+        echo "<a href='product.php?action=edit&id={$row['product_id']}'>Edit</a> | ";
+        echo "<a href='product.php?action=delete&id={$row["product_id"]}'>Delete</a>";
         echo "</td>";
 
         echo "</tr>";

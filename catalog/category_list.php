@@ -1,6 +1,6 @@
 <?php
 include 'sql/connection.php';
-include  'sql/function.php'
+include  'sql/functions.php';
 
 // Fetch all categories from the database
 $query = selectQuery('ccc_category');
@@ -21,7 +21,7 @@ $result = $conn->query($query);
 <ul>
     <?php
     while ($row = $result->fetch_assoc()) {
-        echo "<li>{$row['category_name']}</li>";
+        echo "<li>{$row['name']}</li>";
     }
     ?>
 </ul>
