@@ -6,7 +6,7 @@ class ReturnQuery{
             $query = "INSERT INTO $table ($columns) VALUES ($values)";
             return $query;
         }
-        
+
 
     public function update($table, $data, $condition) {
             $set = "";
@@ -25,22 +25,22 @@ class ReturnQuery{
 
 
     public function deleteQuery($table, $condition) {
-                foreach ($condition as $key => $value) {
-                    $conditions .= "$key = '$value', ";
-                }
-                $condition = implode(", ",$condition);
-                $query = "DELETE FROM $table WHERE $condition";
-                return $query;
+            foreach ($condition as $key => $value) {
+               $conditions .= "$key = '$value', ";
             }
+            $condition = implode(", ",$condition);
+            $query = "DELETE FROM $table WHERE $condition";
+            return $query;
+        }
 
 
     public function selectQuery($table, $columns = "*", $condition = "") {
-        $query = "SELECT $columns FROM $table";
-        if (!empty($condition)) {
-            $query .= " WHERE $condition";
+            $query = "SELECT $columns FROM $table";
+            if (!empty($condition)) {
+                $query .= " WHERE $condition";
+            }
+            return $query;
         }
-        return $query;
-    }
 }
     
 ?>
