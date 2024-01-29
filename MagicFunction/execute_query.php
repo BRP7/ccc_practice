@@ -1,6 +1,4 @@
 <?php
-  
-
 class ExecuteQuery{
     // Function to execute SQL insert query
    public function insert($conn, $table, $data) {

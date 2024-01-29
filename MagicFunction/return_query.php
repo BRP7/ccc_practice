@@ -8,6 +8,7 @@ class ReturnQuery{
         }
 
 
+
     public function update($table, $data, $condition) {
             $set = "";
             $conditions="";
@@ -24,6 +25,7 @@ class ReturnQuery{
         }
 
 
+
     public function deleteQuery($table, $condition) {
             foreach ($condition as $key => $value) {
                $conditions .= "$key = '$value', ";
@@ -34,6 +36,7 @@ class ReturnQuery{
         }
 
 
+        
     public function selectQuery($table, $columns = "*", $condition = "") {
             $query = "SELECT $columns FROM $table";
             if (!empty($condition)) {
