@@ -10,8 +10,8 @@ class BaseClass {
 
 class SubClass extends BaseClass {
     function __construct() {
-        parent::__construct();
         print "In SubClass constructor\n";
+        parent::__construct();
     }
 }
 

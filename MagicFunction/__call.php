@@ -1,4 +1,5 @@
-<!-- Method overloading in PHP is achieved using the __call() and __callStatic() magic methods. These methods are triggered when attempting to invoke inaccessible methods in an object context and a static context, respectively. -->
+<!-- Method overloading in PHP is achieved using the __call() and __callStatic() magic methods. 
+These methods are triggered when attempting to invoke inaccessible methods in an object context and a static context, respectively. -->
 <?php
     class MethodTest
     {
