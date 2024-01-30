@@ -21,7 +21,13 @@ class OtherSubClass extends BaseClass {
 
 $obj = new BaseClass();       // In BaseClass constructor
 $obj = new SubClass();        // In BaseClass constructor // In SubClass constructor
-$obj = new OtherSubClass();   // In BaseClass constructor
+$obj = new OtherSubClass();   // In BaseClass constructor//This behavior ensures that the parent class's constructor is called when creating objects of the child classes, whether it's done explicitly or implicitly.
+
+
+
+
+
+
 
 
 
@@ -89,16 +95,26 @@ class MyClassNew {
 }
 
 
+// A static variable ($myStaticVar in this example) is declared using the static keyword within a class.
+// It is shared among all instances of the class.
+// It can be accessed using the class name followed by the double colon (::).
+
 // New in Initializers (PHP 8.1.0):
-static $x = new MyClassNew;          // Sets $x as an instance of MyClassNew.
-const C = new MyClassNew;             // Defines a constant with an instance of MyClassNew.
-function test($param = new MyClassNew) {}  // Function parameter with a default instance of MyClassNew.
+static $x = new MyClassNew;          // Declares a static variable $x and initializes it with a new instance of MyClassNew. This means that $x now holds an object of the MyClassNew class.
+const C = new MyClassNew;             // constant C and initializes it with a new instance of MyClassNew. Constants can now be initialized with objects.
+function test($param = new MyClassNew) {}  // test with a parameter $param that has a default value of a new instance of MyClassNew. If the function is called without providing a value for $param, it defaults to an instance of MyClassNew
 
 class Test {
     public function __construct(
-        public $prop = new MyClassNew,   // Constructor property promotion with a default instance of MyClassNew.
+        public $prop = new MyClassNew,   // Constructor property promotion with a default instance of MyClassNew.//concise way to declare properties and assign default values during object creation.
     ) {}
 }
+
+
+
+
+
+
 
 
 

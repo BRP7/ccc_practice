@@ -1,5 +1,8 @@
 <!-- Method overloading in PHP is achieved using the __call() and __callStatic() magic methods. 
 These methods are triggered when attempting to invoke inaccessible methods in an object context and a static context, respectively. -->
+
+<!-- In PHP, static variables and static methods are associated with a class rather than an instance of the class. They are shared among all instances of the class
+ and can be accessed using the class name without creating an object. -->
 <?php
     class MethodTest
     {
