@@ -12,8 +12,7 @@ class Model_Product extends Model_Abstract
     public function save($data)
     {
         echo "<pre>";
-        $sql = $this->getQueryBuilder()
-            ->insert(
+        $sql = $this->getQueryBuilder()->insert(
                 $this->tableName,
                 $data
             );
