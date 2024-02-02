@@ -17,6 +17,41 @@ class Lib_Sql_Query_Builder extends Lib_Connection
         $values = implode(",", $values);
         return "INSERT INTO {$tableName} ({$columns}) VALUES ({$values});";
     }
+
+    function update($conn, $table, $data, $condition) {
+        $set = "";
+        foreach ($data as $key => $value) {
+            $set .= "$key = '$value', ";
+        }
+        $set = rtrim($set, ", ");
+    
+        $conditions = "";
+        foreach ($condition as $key => $value) {
+            $conditions .= "$key = '$value' AND ";
+        }
+        $conditions = rtrim($conditions, " AND ");
+        $query = "UPDATE $table SET $set WHERE $conditions";
+        return $query;
+    }
+    
+    // Function to generate SQL delete query
+    function delete($conn, $table, $condition) {
+        $whereClause = '';
+        foreach ($condition as $key => $value) {
+            $whereClause .= "$key = '$value' AND ";
+        }
+        $whereClause = rtrim($whereClause, " AND ");
+        $query = "DELETE FROM $table WHERE $whereClause";
+        return $query;
+    }
+    
+    function selectQuery($table, $columns = "*", $condition = "") {
+        $query = "SELECT $columns FROM $table";
+        if (!empty($condition)) {
+            $query .= " WHERE $condition";
+        }
+        return $query;
+    }
 }
 // The Model_Abstract class provides a method getQueryBuilder that returns an instance of Lib_Sql_Query_Builder.
 // The Lib_Sql_Query_Builder class extends Lib_Connection and provides a method insert for constructing SQL INSERT queries. It escapes values using addslashes to prevent SQL injection.

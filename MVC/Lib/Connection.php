@@ -33,4 +33,13 @@ class Lib_Connection
     		var_dump($e->getMessage());
     	}
     }
+    public function fetch_asso($res)
+    {
+        $data=[];
+        while($row=mysqli_fetch_assoc($res))
+        {
+            $data[]=$row;
+        }
+        return $data;
+    }
 }
