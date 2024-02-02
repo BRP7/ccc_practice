@@ -22,9 +22,9 @@ class query_executor
     public function fetch_asso($res)
     {
         $data=[];
-        while($r=mysqli_fetch_assoc($res))
+        while($row=mysqli_fetch_assoc($res))
         {
-            $data[]=$r;
+            $data[]=$row;
         }
         return $data;
     }

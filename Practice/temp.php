@@ -32,7 +32,7 @@ class B{
 
 $obj = new B();
 
-$obj->test2(); die;
+$obj->test2(); //die;
 print_r($obj->a);
 $obj->test2();
 print_r($obj->a);

@@ -1,8 +1,8 @@
 <?php
 class Model_Request {
-	public function __construct(){
+	// public function __construct(){
 
-	}
+	// }
 
 	public function getParams($key = '') {
 		return ($key == '')
