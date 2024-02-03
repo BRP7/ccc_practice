@@ -20,4 +20,59 @@ class Model_Product extends Model_Abstract
         // echo $sql;
         // print_r($data);
     }
+
+    public function update($data, $condition)
+    {
+        $sql = $this->getQueryBuilder()->update(
+            $this->tableName,
+            $data,
+            $condition
+        );
+        $this->getQueryBuilder()->exec($sql);
+    }
+
+    public function del($condition)
+    {
+        $sql = $this->getQueryBuilder()->delete(
+            $this->tableName,
+            $condition
+        );
+        $this->getQueryBuilder()->exec($sql);
+    }
+    public function show($fields = '*', $conditions = [])
+{
+    $sql = $this->getQueryBuilder()->select($this->tableName, $fields, $conditions);
+    $result = $this->getQueryBuilder()->exec($sql);
+
+    $products = [];
+    while ($row = $this->getQueryBuilder()->fetchAssoc($result)) {
+        $products[] = $row;
+    }
+
+    return $products;
+}
+
+    
+    
+    
+    
+    
+    
+    public function getProductDetails($productId)
+    {
+        echo "getProduct Details inside.";
+    
+        $sql = $this->getQueryBuilder()->select($this->tableName, '*', ['product_id' => $productId]);
+        $result = $this->getQueryBuilder()->exec($sql);
+    
+        if ($result !== null) {
+            return $this->getQueryBuilder()->fetchAssoc($result);
+        }
+    
+        return [];
+    }
+    
+    
+    
+    
 }

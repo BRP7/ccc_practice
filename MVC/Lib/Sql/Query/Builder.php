@@ -18,7 +18,7 @@ class Lib_Sql_Query_Builder extends Lib_Connection
         return "INSERT INTO {$tableName} ({$columns}) VALUES ({$values});";
     }
 
-    function update($conn, $table, $data, $condition) {
+    function update( $table, $data, $condition) {
         $set = "";
         foreach ($data as $key => $value) {
             $set .= "$key = '$value', ";
@@ -35,7 +35,7 @@ class Lib_Sql_Query_Builder extends Lib_Connection
     }
     
     // Function to generate SQL delete query
-    function delete($conn, $table, $condition) {
+    function delete( $table, $condition) {
         $whereClause = '';
         foreach ($condition as $key => $value) {
             $whereClause .= "$key = '$value' AND ";
@@ -44,14 +44,43 @@ class Lib_Sql_Query_Builder extends Lib_Connection
         $query = "DELETE FROM $table WHERE $whereClause";
         return $query;
     }
-    
-    function selectQuery($table, $columns = "*", $condition = "") {
-        $query = "SELECT $columns FROM $table";
-        if (!empty($condition)) {
-            $query .= " WHERE $condition";
+   
+
+    public function select($table, $fields = '*', $conditions = [])
+    {
+        $sql = "SELECT $fields FROM $table";
+
+        if (!empty($conditions)) {
+            $sql .= " WHERE ";
+            $conditionsString = [];
+            foreach ($conditions as $field => $value) {
+                $conditionsString[] = "$field = '$value'";
+            }
+            $sql .= implode(' AND ', $conditionsString);
         }
-        return $query;
+
+        $result = $this->exec($sql); // Execute the query using exec
+        return $this->fetchAssoc($result); // Fetch and return the results using fetchAssoc
     }
+
+
+
+// public function fetchAssoc($result)
+// {
+//     if ($result !== null) {
+//         $data = [];
+//         while ($row = mysqli_fetch_assoc($result)) {
+//             $data[] = $row;
+//         }
+//         return $data;
+//     } else {
+//         // Handle the case where $result is null
+//         return [];
+//     }
+// }
+
+
+    
 }
 // The Model_Abstract class provides a method getQueryBuilder that returns an instance of Lib_Sql_Query_Builder.
 // The Lib_Sql_Query_Builder class extends Lib_Connection and provides a method insert for constructing SQL INSERT queries. It escapes values using addslashes to prevent SQL injection.
